@@ -11,12 +11,6 @@ export default {
 
       const destinationURL = `${api_address}${pathname}${search}`;
 
-      // const url = someHost //+ "/static/json";
-      // /**
-      //  * gatherResponse awaits and returns a response body as a string.
-      //  * Use await gatherResponse(..) in an async function to get the response body
-      //  * @param {Response} response
-      //  */
       async function gatherResponse(response) {
         const { headers } = response;
         const contentType = headers.get("content-type") || "";
@@ -25,18 +19,16 @@ export default {
         }
         return response.text();
       }
-      //
-      //
+
       const init = {
         headers: {
           "content-type": "application/json;charset=UTF-8",
         },
       };
-      return new Response(JSON.stringify({new_url: destinationURL}));
-      //
+      //return new Response(JSON.stringify({new_url: destinationURL}));
+      
       const response = await fetch(destinationURL, init);
-      //
-      // //console.log(response)
+
       const results = await gatherResponse(response);
       return new Response(results, init);
     }
