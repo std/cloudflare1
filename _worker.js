@@ -2,7 +2,7 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname.startsWith('/api')) {
-      const someHost = "http://ledg.app/mainnet/api/Sector";
+      const someHost = "http://ledg.app/mainnet/api/Account?id=eq.101";
 
       const url = someHost //+ "/static/json";
 
