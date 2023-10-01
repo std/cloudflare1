@@ -28,8 +28,8 @@ export async function onRequest(context) {
     };
 
     const response = await fetch(url, init);
-    const results=JSON.stringify(response)
-    //const results = await gatherResponse(response);
+    //const results=JSON.stringify(response)
+    const results = await gatherResponse(response);
     //console.log({res:url})
     
   return new Response(results)
