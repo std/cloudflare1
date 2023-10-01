@@ -32,7 +32,7 @@ export default {
           "content-type": "application/json;charset=UTF-8",
         },
       };
-      return new Response({new_url: destinationURL},init);
+      return new Response(JSON.stringify({new_url: destinationURL}));
       //
       // const response = await fetch(url, init);
       //
