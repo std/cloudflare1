@@ -2,9 +2,10 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     if (url.pathname.startsWith('/api')) {
-      const someHost = "http://ledg.app/mainnet/api/Account?id=eq.101";
+      const someHost = "http://ledg.app/mainnet/api/";
 
       const url = someHost //+ "/static/json";
+
 
       /**
        * gatherResponse awaits and returns a response body as a string.
@@ -15,7 +16,7 @@ export default {
         const { headers } = response;
         const contentType = headers.get("content-type") || "";
         if (contentType.includes("application/json")) {
-          return JSON.stringify(await response.json());
+          return `url: ${url} \n`+JSON.stringify(await response.json());
         }
         return response.text();
       }
@@ -33,9 +34,7 @@ export default {
       const results = await gatherResponse(response);
       return new Response(results, init);
     }
-    // Otherwise, serve the static assets.
-    // Without this, the Worker will error and no assets will be served.
-    console.log('fetch assets');
+
     return env.ASSETS.fetch(request);
   },
 }
