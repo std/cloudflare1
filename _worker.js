@@ -1,5 +1,5 @@
 export default {
-  async fetch(request, env) {
+  async fetch(request, env,ctx) {
     const url = new URL(request.url);
     if (url.pathname.startsWith('/api')) {
       const api_address = "http://ledg.app/mainnet";
@@ -26,11 +26,19 @@ export default {
         },
       };
       //return new Response(JSON.stringify({new_url: destinationURL}));
-      
-      const response = await fetch(destinationURL, init);
+      const cache=caches.default
+      const cacheKey=destinationURL
+      let  response=await cache.match(cacheKey);
 
-      const results = await gatherResponse(response);
-      return new Response(results, init);
+      if (!response) {
+        response = await fetch(destinationURL, init);
+
+        const results = await gatherResponse(response);
+        response = new Response(results, init);
+        response.headers.append("Cache-Control", "s-maxage=30");
+        ctx.waitUntil(cache.put(cacheKey, response.clone()));
+      }
+      return response
     }
 
     return env.ASSETS.fetch(request);
