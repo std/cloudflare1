@@ -7,6 +7,7 @@ export default {
     }
     // Otherwise, serve the static assets.
     // Without this, the Worker will error and no assets will be served.
+    console.log('fetch assets');
     return env.ASSETS.fetch(request);
   },
 }
