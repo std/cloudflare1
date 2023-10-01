@@ -12,7 +12,7 @@ export default {
       const destinationURL = `${api_address}${pathname}${search}`;
       console.log(destinationURL);
 
-      return `new url: ${destinationURL}`;
+
       // const url = someHost //+ "/static/json";
       // /**
       //  * gatherResponse awaits and returns a response body as a string.
@@ -29,11 +29,12 @@ export default {
       // }
       //
       //
-      // const init = {
-      //   headers: {
-      //     "content-type": "application/json;charset=UTF-8",
-      //   },
-      // };
+      const init = {
+        headers: {
+          "content-type": "application/json;charset=UTF-8",
+        },
+      };
+      return new Response({new_url: destinationURL,init});
       //
       // const response = await fetch(url, init);
       //
