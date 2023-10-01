@@ -1,9 +1,9 @@
 
 export async function onRequest(context) {
 
-    const someHost = "http://ledg.app/mainnet/api/Sector";
+    const someHost = "http://ledg.app/mainnet/api/Sector/mainnet/api/Account?id=eq.101";
 
-    const url = someHost + "/mainnet/api/Account?id=eq.101";
+    const url = someHost// + "/mainnet/api/Account?id=eq.101";
 
     console.log(url);
     /**
@@ -27,7 +27,8 @@ export async function onRequest(context) {
       },
     };
 
-    //const response = await fetch(url, init);
+    const response = await fetch(url, init);
+    const results=JSON.stringify(response)
     //const results = await gatherResponse(response);
     //console.log({res:url})
     
