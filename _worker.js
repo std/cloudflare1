@@ -3,6 +3,7 @@ export default {
     const url = new URL(request.url);
     if (url.pathname.startsWith('/api/')) {
       // TODO: Add your custom /api/* logic here.
+      console.log('api')
       return new Response('Ok');
     }
     // Otherwise, serve the static assets.
