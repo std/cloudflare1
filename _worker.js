@@ -10,8 +10,6 @@ export default {
       const { pathname, search } = url;
 
       const destinationURL = `${api_address}${pathname}${search}`;
-      console.log(destinationURL);
-
 
       // const url = someHost //+ "/static/json";
       // /**
@@ -34,7 +32,7 @@ export default {
           "content-type": "application/json;charset=UTF-8",
         },
       };
-      return new Response({new_url: destinationURL,init});
+      return new Response({new_url: destinationURL},init);
       //
       // const response = await fetch(url, init);
       //
