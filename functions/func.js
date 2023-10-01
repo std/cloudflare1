@@ -1,5 +1,5 @@
 
-export function onRequest(context) {
+export async function onRequest(context) {
 
     const someHost = "http://ledg.app/mainnet/api/Sector";
 
