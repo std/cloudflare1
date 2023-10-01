@@ -27,9 +27,9 @@ export async function onRequest(context) {
       },
     };
 
-    const response = await fetch(url, init);
-    const results = await gatherResponse(response);
-    console.log({res:JSON.stringify(response)})
+    //const response = await fetch(url, init);
+    //const results = await gatherResponse(response);
+    console.log({res:url})
     
   return new Response(results)
 }
