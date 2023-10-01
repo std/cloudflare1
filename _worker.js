@@ -17,14 +17,14 @@ export default {
       //  * Use await gatherResponse(..) in an async function to get the response body
       //  * @param {Response} response
       //  */
-      // async function gatherResponse(response) {
-      //   const { headers } = response;
-      //   const contentType = headers.get("content-type") || "";
-      //   if (contentType.includes("application/json")) {
-      //     return `url: ${url} \n`+JSON.stringify(await response.json());
-      //   }
-      //   return `url2: ${url} \n`+response.text();
-      // }
+      async function gatherResponse(response) {
+        const { headers } = response;
+        const contentType = headers.get("content-type") || "";
+        if (contentType.includes("application/json")) {
+          return JSON.stringify(await response.json());
+        }
+        return response.text();
+      }
       //
       //
       const init = {
@@ -34,11 +34,11 @@ export default {
       };
       return new Response(JSON.stringify({new_url: destinationURL}));
       //
-      // const response = await fetch(url, init);
+      const response = await fetch(destinationURL, init);
       //
       // //console.log(response)
-      // const results = await gatherResponse(response);
-      // return new Response(results, init);
+      const results = await gatherResponse(response);
+      return new Response(results, init);
     }
 
     return env.ASSETS.fetch(request);
