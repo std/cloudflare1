@@ -5,6 +5,7 @@ export async function onRequest(context) {
 
     const url = someHost + "/mainnet/api/Account?id=eq.101";
 
+    console.log(url);
     /**
      * gatherResponse awaits and returns a response body as a string.
      * Use await gatherResponse(..) in an async function to get the response body
