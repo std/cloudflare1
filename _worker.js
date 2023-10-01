@@ -12,7 +12,7 @@ export default {
       const destinationURL = `${api_address}${pathname}${search}`;
       console.log(destinationURL);
 
-      return Response.redirect(destinationURL, statusCode);
+      return `new url: ${destinationURL}`;
       // const url = someHost //+ "/static/json";
       // /**
       //  * gatherResponse awaits and returns a response body as a string.
