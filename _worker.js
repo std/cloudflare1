@@ -4,7 +4,7 @@ export default {
     if (url.pathname.startsWith('/api')) {
       const api_address = "http://ledg.app/mainnet";
 
-      const statusCode = 301;
+      //const statusCode = 301;
 
       const url = new URL(request.url);
       const { pathname, search } = url;
@@ -25,7 +25,7 @@ export default {
           "content-type": "application/json;charset=UTF-8",
         },
       };
-      
+
       const cache=caches.default
       const cacheKey=destinationURL
       let  response=await cache.match(cacheKey);
