@@ -25,7 +25,7 @@ export default {
           "content-type": "application/json;charset=UTF-8",
         },
       };
-      //return new Response(JSON.stringify({new_url: destinationURL}));
+      
       const cache=caches.default
       const cacheKey=destinationURL
       let  response=await cache.match(cacheKey);
