@@ -2,7 +2,7 @@ export default {
   async fetch(request, env,ctx) {
     const url = new URL(request.url);
     if (url.pathname.startsWith('/api')) {
-      const api_address = "http://ledg.app/mainnet";
+      const api_address = "http://std.lv/mainnet";
 
       //const statusCode = 301;
 
