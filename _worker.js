@@ -3,21 +3,18 @@ export default {
     const url = new URL(request.url);
 
 
-    const api_address = "http://std.lv/mainnet";
-    const test_url='https://std.lv:80/mainnet/api/Account?id=eq.101'
-    return fetch (test_url)
+    const api_address = "http://ledg.app/mainnet";
 
-    const { pathname, search } = url;
-    const destinationURL = `${api_address}${pathname}${search}`;
-    return new Response(JSON.stringify({utl:destinationURL}))
+    // const { pathname, search } = url;
+    // const destinationURL = `${api_address}${pathname}${search}`;
+
     if (url.pathname.startsWith('/api')) {
-
 
       const url = new URL(request.url);
       const { pathname, search } = url;
 
       const destinationURL = `${api_address}${pathname}${search}`;
-      return new Response(JSON.stringify({destinationURL, data:await fetch(destinationURL)}))
+      //return new Response(JSON.stringify({destinationURL, data:await fetch(destinationURL)}))
       //return new Response(`api: ${destinationURL}`)
 
       async function gatherResponse(response) {
@@ -35,7 +32,7 @@ export default {
         },
       };
 
-      // const response = await fetch(destinationURL, init);
+      //const response = await fetch(destinationURL, init);
       //
       // const results = await gatherResponse(response);
       // const response = new Response(results, init);
