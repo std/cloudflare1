@@ -11,8 +11,8 @@ export default {
       const { pathname, search } = url;
 
       const destinationURL = `${api_address}${pathname}${search}`;
-      
-      return new Response(`api: ${destinationURL}`)
+
+      //return new Response(`api: ${destinationURL}`)
 
       async function gatherResponse(response) {
         const { headers } = response;
@@ -43,7 +43,7 @@ export default {
       }
       return response
     }
-    return new Response(url)
+    //return new Response(url)
     return env.ASSETS.fetch(request);
   },
 }
