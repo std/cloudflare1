@@ -29,18 +29,21 @@ export default {
         },
       };
 
-      const cache=caches.default
-      const cacheKey=destinationURL
-      let  response=await cache.match(cacheKey);
+      const results = await gatherResponse(response);
+      const response = new Response(results, init);
 
-      if (!response) {
-        response = await fetch(destinationURL, init);
-
-        const results = await gatherResponse(response);
-        response = new Response(results, init);
-        response.headers.append("Cache-Control", "s-maxage=60");
-        ctx.waitUntil(cache.put(cacheKey, response.clone()));
-      }
+      // const cache=caches.default
+      // const cacheKey=destinationURL
+      // let  response=await cache.match(cacheKey);
+      //
+      // if (!response) {
+      //   response = await fetch(destinationURL, init);
+      //
+      //   const results = await gatherResponse(response);
+      //   response = new Response(results, init);
+      //   response.headers.append("Cache-Control", "s-maxage=60");
+      //   ctx.waitUntil(cache.put(cacheKey, response.clone()));
+      // }
       return response
     }
     //return new Response(url)
