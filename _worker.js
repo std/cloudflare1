@@ -2,9 +2,12 @@ export default {
   async fetch(request, env,ctx) {
     const url = new URL(request.url);
 
+
     const api_address = "http://std.lv/mainnet";
 
-    return new Response(JSON.stringify({path:url.pathname}))
+    const { pathname, search } = url;
+    const destinationURL = `${api_address}${pathname}${search}`;
+    return new Response(JSON.stringify({utl:destinationURL}))
     if (url.pathname.startsWith('/api')) {
 
 
