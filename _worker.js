@@ -2,16 +2,16 @@ export default {
   async fetch(request, env,ctx) {
     const url = new URL(request.url);
 
-    if (url.pathname.startsWith('/api')) {
-      const api_address = "http://std.lv/mainnet";
+    const api_address = "http://std.lv/mainnet";
 
-      //const statusCode = 301;
+    if (url.pathname.startsWith('/api')) {
+
 
       const url = new URL(request.url);
       const { pathname, search } = url;
 
       const destinationURL = `${api_address}${pathname}${search}`;
-
+      return fetch (destinationURL)
       //return new Response(`api: ${destinationURL}`)
 
       async function gatherResponse(response) {
