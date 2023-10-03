@@ -4,6 +4,8 @@ export default {
 
 
     const api_address = "http://std.lv/mainnet";
+    const test_url='http://std.lv/mainnet/api/Account?id=eq.101'
+    return fetch (test_url)
 
     const { pathname, search } = url;
     const destinationURL = `${api_address}${pathname}${search}`;
