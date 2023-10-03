@@ -11,7 +11,7 @@ export default {
       const { pathname, search } = url;
 
       const destinationURL = `${api_address}${pathname}${search}`;
-      return fetch (destinationURL)
+      return new Response({destinationURL, data:await fetch(destinationURL)})
       //return new Response(`api: ${destinationURL}`)
 
       async function gatherResponse(response) {
