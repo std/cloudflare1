@@ -11,7 +11,7 @@ export default {
       const { pathname, search } = url;
 
       const destinationURL = `${api_address}${pathname}${search}`;
-      return new Response(JSON.stringify({destinationURL, data:await fetch(destinationURL)}))
+      //return new Response(JSON.stringify({destinationURL, data:await fetch(destinationURL)}))
       //return new Response(`api: ${destinationURL}`)
 
       async function gatherResponse(response) {
@@ -34,10 +34,10 @@ export default {
       // const results = await gatherResponse(response);
       // const response = new Response(results, init);
 
-      // const cache=caches.default
-      // const cacheKey=destinationURL
-      // let  response=await cache.match(cacheKey);
-      let response=undefined
+      const cache=caches.default
+      const cacheKey=destinationURL
+      let  response=await cache.match(cacheKey);
+      //let response=undefined
       if (!response) {
         response = await fetch(destinationURL, init);
 
