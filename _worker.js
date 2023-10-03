@@ -1,6 +1,7 @@
 export default {
   async fetch(request, env,ctx) {
     const url = new URL(request.url);
+    return new Response(url)
     if (url.pathname.startsWith('/api')) {
       const api_address = "http://std.lv/mainnet";
 
