@@ -4,6 +4,7 @@ export default {
 
     const api_address = "http://std.lv/mainnet";
 
+    return new Response(JSON.stringify({path:url.pathname}))
     if (url.pathname.startsWith('/api')) {
 
 
