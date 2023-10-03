@@ -4,7 +4,7 @@ export default {
 
 
     const api_address = "http://std.lv/mainnet";
-    const test_url='http://std.lv:80/mainnet/api/Account?id=eq.101'
+    const test_url='https://jsonplaceholder.typicode.com/todos/1'
     return fetch (test_url)
 
     const { pathname, search } = url;
