@@ -42,10 +42,10 @@ export default {
       let  response=await cache.match(cacheKey);
       //let response=undefined
       if (!response) {
-        response = await fetch(destinationURL, init);
+        const fetch_response = await fetch(destinationURL, init);
 
-        const results = await gatherResponse(response);
-        response = new Response(results);
+        const results = await gatherResponse(fetch_response);
+        response = new Response(results,{headers:fetch_response.headers});
         response.headers.append("Cache-Control", "s-maxage=60");
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
       }
