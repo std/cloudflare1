@@ -45,7 +45,7 @@ export default {
         response = await fetch(destinationURL, init);
 
         const results = await gatherResponse(response);
-        response = new Response(results, init);
+        response = new Response(results);
         response.headers.append("Cache-Control", "s-maxage=60");
         ctx.waitUntil(cache.put(cacheKey, response.clone()));
       }
